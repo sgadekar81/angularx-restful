@@ -1,0 +1,29 @@
+{
+  "name": "angularx-restful",
+  "version": "0.0.2-alpha",
+  "description": "simple wraper for angular ^2 http client communication to consume restful apis",
+  "main": "bundles/angularx-restful.umd.js",
+  "module": "index.js",
+  "typings": "index.d.ts",
+  "keywords": [
+    "angular",
+    "angular2",
+    "angular 2",
+    "angular4"
+  ],
+  "author": "sandman81",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/sgadekar81/ionic-login.git"
+  },
+  "homepage": "https://github.com/sgadekar81/ionic-login",
+  "bugs": {
+    "url": "https://github.com/sgadekar81/ionic-login/issues"
+  },
+  "peerDependencies": {
+    "@angular/core": "^2.4.0 || ^4.0.0",
+    "rxjs": "^5.0.1"
+  }
+}
+
