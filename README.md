@@ -1,3 +1,5 @@
+<!---
+
 # angularx-restful
 
 # Description :
@@ -72,3 +74,4 @@ this._rst
 uri.payload = > url 
 params.payload  => payload
 params.headers => headers
+-->
