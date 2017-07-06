@@ -5,7 +5,7 @@
 # Why :
 	Hey guys hi,
 	I am new to this world of programming
-	I wrote this piease of code for one the my project
+	I wrote this code snippet for one the my project
 	when new project started I used to copy paste this file in every project
 	instead of copying and pasting files npm install angularx-restful --save
 	is always better, 
