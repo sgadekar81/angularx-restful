@@ -11,9 +11,7 @@ import { LftSrv }     from 'angularx-headers/lft.service';
 
 @Injectable()
 export class RestService {	
-	constructor (private http: Http,private _lftSrv:LftSrv) {
-		console.log(this._lftSrv.hdrs('authorization',''));
-	}
+	constructor (private http: Http,private _lftSrv:LftSrv) {}
 		
 	get(params:RestParams){
 		return this.http.get(params.uri)
@@ -21,12 +19,12 @@ export class RestService {
 				.catch(this.handleError);
 	};
 	post(params:RestParams){
-	  return this.http.post(params.uri,params.payload,{headers:this.getDftHdr()})
+	  return this.http.post(params.uri,params.payload,{headers:this.getDftHdr(params.headers)})
 	    .map(this.extractData)
 	    .catch(this.handleError);
 	};
 	put(params:RestParams){
-	  return this.http.put(params.uri,params.payload,{headers:this.getDftHdr()})
+	  return this.http.put(params.uri,params.payload,{headers:this.getDftHdr(params.headers)})
 	    .map(this.extractData)
 	    .catch(this.handleError);
 	};
@@ -54,7 +52,11 @@ export class RestService {
 	  // return Observable.throw(errMsg);
 	}
 
-	private getDftHdr(){
-		return this._lftSrv.hdrs('authorization','')
+	private getDftHdr(hdrsArr:any){
+		if(hdrsArr && hdrsArr.length>0){
+			return this._lftSrv.hdrs(hdrsArr)
+		}else{
+			return this._lftSrv.hdrs('authorization','')
+		}
 	}
 }
