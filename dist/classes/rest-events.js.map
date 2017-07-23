@@ -1,0 +1,1 @@
+{"version":3,"sources":["../../classes/rest-events.ts"],"names":[],"mappings":"AAAA;IAAA;IAKA,CAAC;IAAD,iBAAC;AAAD,CALA,AAKC,IAAA","file":"rest-events.js","sourceRoot":"","sourcesContent":["export class RestEvents{\r\n    restInit:Function;\r\n    restInitMsg:string;\r\n    restFin:Function;\r\n    restFinMsg:string;\r\n}"]}

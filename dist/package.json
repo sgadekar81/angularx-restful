@@ -1,6 +1,6 @@
 {
   "name": "angularx-restful",
-  "version": "0.0.4-alpha",
+  "version": "0.0.11-alpha",
   "description": "simple wraper for angular ^2 http client communication to consume restful apis",
   "main": "bundles/angularx-restful.umd.js",
   "module": "index.js",
