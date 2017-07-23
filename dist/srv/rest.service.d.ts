@@ -15,5 +15,5 @@ export declare class RestService {
     delete(params: RestParams): Observable<any>;
     private extractData(res);
     private handleError(error);
-    private getDftHdr();
+    private getDftHdr(hdrsArr);
 }

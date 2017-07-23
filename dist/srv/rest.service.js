@@ -10,7 +10,6 @@ var RestService = (function () {
     function RestService(http, _lftSrv) {
         this.http = http;
         this._lftSrv = _lftSrv;
-        console.log(this._lftSrv.hdrs('authorization', ''));
     }
     RestService.prototype.get = function (params) {
         return this.http.get(params.uri)
@@ -19,13 +18,13 @@ var RestService = (function () {
     };
     ;
     RestService.prototype.post = function (params) {
-        return this.http.post(params.uri, params.payload, { headers: this.getDftHdr() })
+        return this.http.post(params.uri, params.payload, { headers: this.getDftHdr(params.headers) })
             .map(this.extractData)
             .catch(this.handleError);
     };
     ;
     RestService.prototype.put = function (params) {
-        return this.http.put(params.uri, params.payload, { headers: this.getDftHdr() })
+        return this.http.put(params.uri, params.payload, { headers: this.getDftHdr(params.headers) })
             .map(this.extractData)
             .catch(this.handleError);
     };
@@ -53,8 +52,13 @@ var RestService = (function () {
         // }
         // return Observable.throw(errMsg);
     };
-    RestService.prototype.getDftHdr = function () {
-        return this._lftSrv.hdrs('authorization', '');
+    RestService.prototype.getDftHdr = function (hdrsArr) {
+        if (hdrsArr && hdrsArr.length > 0) {
+            return this._lftSrv.hdrs(hdrsArr);
+        }
+        else {
+            return this._lftSrv.hdrs('authorization', '');
+        }
     };
     RestService.decorators = [
         { type: Injectable },
