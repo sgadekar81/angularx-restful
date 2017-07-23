@@ -9,14 +9,24 @@
 import * as i0 from '@angular/core';
 import * as i1 from './angularx-restful.module';
 import * as i2 from '@angular/common';
-import * as i3 from '../srv/rest.service';
-import * as i4 from '@angular/http';
+import * as i3 from 'angularx-local-storage/localStorage.service';
+import * as i4 from 'angularx-headers/headers.service';
+import * as i5 from 'angularx-headers/lft.service';
+import * as i6 from '../srv/rest.service';
+import * as i7 from '@angular/http';
+import * as i8 from 'angularx-local-storage/localStorage.module';
+import * as i9 from 'angularx-headers/angularx-headers.module';
 export const AngularxRestfulNgFactory:i0.NgModuleFactory<i1.AngularxRestful> = i0.ɵcmf(i1.AngularxRestful,
     ([] as any[]),(_l:any) => {
       return i0.ɵmod([i0.ɵmpd(512,i0.ComponentFactoryResolver,i0.ɵCodegenComponentFactoryResolver,
           [[8,([] as any[])],[3,i0.ComponentFactoryResolver],i0.NgModuleRef]),i0.ɵmpd(4608,
-          i2.NgLocalization,i2.NgLocaleLocalization,[i0.LOCALE_ID]),i0.ɵmpd(4608,i3.RestService,
-          i3.RestService,[i4.Http]),i0.ɵmpd(512,i2.CommonModule,i2.CommonModule,([] as any[])),
-          i0.ɵmpd(512,i1.AngularxRestful,i1.AngularxRestful,([] as any[]))]);
+          i2.NgLocalization,i2.NgLocaleLocalization,[i0.LOCALE_ID]),i0.ɵmpd(4608,i3.LocalStorage,
+          i3.LocalStorage,([] as any[])),i0.ɵmpd(4608,i4.HeadersService,i4.HeadersService,
+          ([] as any[])),i0.ɵmpd(4608,i5.LftSrv,i5.LftSrv,[i4.HeadersService,i3.LocalStorage]),
+          i0.ɵmpd(4608,i6.RestService,i6.RestService,[i7.Http,i5.LftSrv]),i0.ɵmpd(512,
+              i2.CommonModule,i2.CommonModule,([] as any[])),i0.ɵmpd(512,i8.AngularxLocalStorage,
+              i8.AngularxLocalStorage,([] as any[])),i0.ɵmpd(512,i9.AngularxHeaders,
+              i9.AngularxHeaders,([] as any[])),i0.ɵmpd(512,i1.AngularxRestful,i1.AngularxRestful,
+              ([] as any[]))]);
     });
-//# sourceMappingURL=data:application/json;base64,eyJmaWxlIjoiQzovVXNlcnMvU2FuZC1NYW4vRGVza3RvcC9hbmd1bGFyLXJlc3RmdWxsL21kbC9hbmd1bGFyeC1yZXN0ZnVsLm1vZHVsZS5uZ2ZhY3RvcnkudHMiLCJ2ZXJzaW9uIjozLCJzb3VyY2VSb290IjoiIiwic291cmNlcyI6WyJuZzovLy9DOi9Vc2Vycy9TYW5kLU1hbi9EZXNrdG9wL2FuZ3VsYXItcmVzdGZ1bGwvbWRsL2FuZ3VsYXJ4LXJlc3RmdWwubW9kdWxlLnRzIl0sInNvdXJjZXNDb250ZW50IjpbIiAiXSwibWFwcGluZ3MiOiJBQUFBOzs7Ozs7Ozs7Ozs7Ozs7Ozs7OzsifQ==
+//# sourceMappingURL=data:application/json;base64,eyJmaWxlIjoiRTovV09SS0lOR19EaXIvbnBtUHJvamVjdHMvYW5ndWxhcngtcmVzdGZ1bC9tZGwvYW5ndWxhcngtcmVzdGZ1bC5tb2R1bGUubmdmYWN0b3J5LnRzIiwidmVyc2lvbiI6Mywic291cmNlUm9vdCI6IiIsInNvdXJjZXMiOlsibmc6Ly8vRTovV09SS0lOR19EaXIvbnBtUHJvamVjdHMvYW5ndWxhcngtcmVzdGZ1bC9tZGwvYW5ndWxhcngtcmVzdGZ1bC5tb2R1bGUudHMiXSwic291cmNlc0NvbnRlbnQiOlsiICJdLCJtYXBwaW5ncyI6IkFBQUE7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7OzsifQ==

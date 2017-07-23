@@ -5,9 +5,12 @@ import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/operator/catch';
 import 'rxjs/add/operator/map';
 import 'rxjs/add/observable/throw';
+import { LftSrv } from 'angularx-headers/lft.service';
 var RestService = (function () {
-    function RestService(http) {
+    function RestService(http, _lftSrv) {
         this.http = http;
+        this._lftSrv = _lftSrv;
+        console.log(this._lftSrv.hdrs('authorization', ''));
     }
     RestService.prototype.get = function (params) {
         return this.http.get(params.uri)
@@ -16,13 +19,13 @@ var RestService = (function () {
     };
     ;
     RestService.prototype.post = function (params) {
-        return this.http.post(params.uri, params.payload, { headers: params.headers })
+        return this.http.post(params.uri, params.payload, { headers: this.getDftHdr() })
             .map(this.extractData)
             .catch(this.handleError);
     };
     ;
     RestService.prototype.put = function (params) {
-        return this.http.put(params.uri, params.payload)
+        return this.http.put(params.uri, params.payload, { headers: this.getDftHdr() })
             .map(this.extractData)
             .catch(this.handleError);
     };
@@ -50,12 +53,16 @@ var RestService = (function () {
         // }
         // return Observable.throw(errMsg);
     };
+    RestService.prototype.getDftHdr = function () {
+        return this._lftSrv.hdrs('authorization', '');
+    };
     RestService.decorators = [
         { type: Injectable },
     ];
     /** @nocollapse */
     RestService.ctorParameters = function () { return [
         { type: Http, },
+        { type: LftSrv, },
     ]; };
     return RestService;
 }());
