@@ -17,5 +17,7 @@
     "@angular/http": "^4.2.5"
   },
   "dependencies": {
+    "angularx-headers": "0.0.7-alpha",
+    "angularx-local-storage": "0.0.2"
   }
 }

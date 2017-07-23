@@ -7,22 +7,26 @@ import 'rxjs/add/operator/map';
 import 'rxjs/add/observable/throw';
 import { RestParams } from '../classes/rest-params';
 
+import { LftSrv }     from 'angularx-headers/lft.service';
+
 @Injectable()
 export class RestService {	
-	constructor (private http: Http) {}
+	constructor (private http: Http,private _lftSrv:LftSrv) {
+		console.log(this._lftSrv.hdrs('authorization',''));
+	}
 		
 	get(params:RestParams){
-        return this.http.get(params.uri)
-            .map(this.extractData)
-            .catch(this.handleError);
+		return this.http.get(params.uri)
+				.map(this.extractData)
+				.catch(this.handleError);
 	};
 	post(params:RestParams){
-	  return this.http.post(params.uri,params.payload,{headers:params.headers})
+	  return this.http.post(params.uri,params.payload,{headers:this.getDftHdr()})
 	    .map(this.extractData)
 	    .catch(this.handleError);
 	};
 	put(params:RestParams){
-	  return this.http.put(params.uri,params.payload)
+	  return this.http.put(params.uri,params.payload,{headers:this.getDftHdr()})
 	    .map(this.extractData)
 	    .catch(this.handleError);
 	};
@@ -50,5 +54,7 @@ export class RestService {
 	  // return Observable.throw(errMsg);
 	}
 
-		
+	private getDftHdr(){
+		return this._lftSrv.hdrs('authorization','')
+	}
 }
